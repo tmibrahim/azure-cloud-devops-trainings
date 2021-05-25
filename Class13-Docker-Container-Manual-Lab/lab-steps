@@ -1,0 +1,78 @@
+Step 1: Install Docker in Ubuntu Linux machine
+
+sudo apt-get update
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+   
+sudo apt-get update
+
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+
+
+************************************************************************
+Step 2: Download sample Docker image
+
+docker pull httpd
+
+run container independent mode
+
+docker run -dit httpd
+
+Run container and expose to internet
+
+docker run -dit --name cloudnloud-web -p 8087:80 -v /var/tmp/:/usr/local/apache2/htdocs/ httpd:2.4
+
+
+Access the application from internet
+
+Open browser access http://<machine public IP>:8087/
+
+echo "you are now know how to smash it" > /var/tmp/index.html
+
+Open browser access http://<machine public IP>:8087/
+
+************************************************************************
+
+Step 3: Create new Docker file
+
+FROM ubuntu:latest
+RUN apt update
+RUN apt install -y nginx
+ADD index.html /usr/share/nginx/html/index.html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+
+save the above into file called Dockerfile
+
+make sure you have some dummy index.html file in the same directory.(echo "you are now strong in learning.Keep going.Keep fail in your lab" > index.html)
+
+execute the below command
+
+Use Docker file to create custom image
+
+docker build  .
+
+Create new Docker repo in hub.docker.com
+
+Note the new Docker repo name
+
+Convert the custom image to match new Docker repo compatibility.
+
+docker tag <image id> cloudnloud/webapp:latest
+
+Push custom Docker image to Docker image repository
+
+docker push cloudnloud/webapp:latest
+
+now go to hub.docker.com and go to your newly created respository.Check the pushed status.
