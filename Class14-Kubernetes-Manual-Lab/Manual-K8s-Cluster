@@ -101,7 +101,7 @@ kubectl create ns facebook
 
 Download sample yaml playbook to deploy application
 
-wget https://raw.githubusercontent.com/cloudnloud/azure-training/main/nodeport-facebook.yaml
+wget https://raw.githubusercontent.com/cloudnloud/azure-training/main/Class14-Kubernetes-Manual-Lab/nodeport-facebook.yaml
 
 Deploy sample application and expose it to internet
 
