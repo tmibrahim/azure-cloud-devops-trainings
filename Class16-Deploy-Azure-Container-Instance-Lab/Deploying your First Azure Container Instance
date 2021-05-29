@@ -1,4 +1,19 @@
-Pre-Requisities: You need to have basic idea on how to create custom docker image and how to push it to Docker Repository
+Pre-Requisities: 
+
+You need to have basic idea on how to create custom docker image and how to push it to Docker Repository
+
+Before Learn Azure Container Instance handson,learn the manual docker container hands on lab.
+
+Class13
+
+- Docker Hands-on Lab
+
+https://youtu.be/qxHHPOYKDfQ
+
+
+- Docker-Container-Manual-Lab-Commands-Guide
+
+https://github.com/cloudnloud/azure-training/tree/main/Class13-Docker-Container-Manual-Lab
 
 ********************************************************
 
