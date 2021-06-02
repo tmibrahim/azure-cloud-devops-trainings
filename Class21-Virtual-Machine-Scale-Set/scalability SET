@@ -1,0 +1,49 @@
+Install Stress in CENTOS/RHEL
+
+yum install stress
+
+Install stress on a Debian and Ubuntu Linux
+
+Type the following apt-get command to install the same:
+apt-get install stress
+
+**************************************************
+Increase CPU utilization
+
+stress --cpu 80
+
+************************************
+
+By the way, you can stress your system by cpu, memory, io, hdd, or a combination of them. You can get a list of options and parameters in manpage as well.
+
+Example 1:
+Bring the system load average up to an arbitrary value for cpu. In this example, it forks 4 processes with calculating the sqrt() of a random number acquired with rand() function.
+
+stress -c 4
+or
+strss --cpu 4  --timeout 15
+
+"--timeout 15" means timeout after 15 seconds
+
+*******************************************************************************************
+Example 2:
+To see how your system performs when it is I/O bound, use the -i switch.
+
+stress -i 4
+or
+stress --io 4
+
+This will call sync() which is a system call that flushes memory buffers to disk.
+Of course, you can combine above commands like:
+
+stress -c 4 -i 4 --verbose --timeout 15 
+
+Example 3:
+Now, let's try memory stress. The following command forks 7 processes each spinning on malloc():
+
+stress -m 7 --timeout 15
+or
+stress --vm 7 --timeout 15
+
+************************************************************************************************
+
